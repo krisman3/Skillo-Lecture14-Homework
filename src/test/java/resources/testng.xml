@@ -1,0 +1,29 @@
+<suite name="Register Tests Suite" verbose="1">
+    <test name="Register Tests">
+        <classes>
+            <class name="RegisterTests">
+                <methods>
+                    <include name="negativeRegistrationTest_1">
+                        <parameter name="username" value="randomuser_sk10" />
+                        <parameter name="email" value="randomuser_sk10#something.com" />
+                        <parameter name="password" value="1" />
+                        <parameter name="confirmPassword" value="123123123" />
+                    </include>
+                    <include name="negativeRegistrationTest_2"></include>
+                    <include name="negativeRegistrationTest_3">
+                        <parameter name="username" value="r" />
+                        <parameter name="email" value="randomuser_sk10" />
+                        <parameter name="password" value="123123" />
+                        <parameter name="confirmPassword" value="123123" />
+                    </include>
+                    <include name="negativeRegistrationTest_4">
+                        <parameter name="username" value="randomuser_sk10" />
+                        <parameter name="email" value="randomuser_sk10@something.com" />
+                        <parameter name="password" value="12345secretsauce12345" />
+                        <parameter name="confirmPassword" value="12345secretsauce12345" />
+                    </include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
