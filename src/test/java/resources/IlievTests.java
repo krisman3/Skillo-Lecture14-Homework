@@ -66,6 +66,33 @@ public class IlievTests {
 
     }
 
+    //Testing passwords mismatch
+    @Test
+    public void passMismatch(){
+        //Navigating to the Registration page.
+        navigateToReg();
+        //Finding and populating first pass field.
+        WebElement firstPass = driver.findElement(By.id("defaultRegisterFormPassword"));
+        clickElement(firstPass);
+        //Adding correct pass
+        firstPass.sendKeys("passw0rd");
+        //Finding and populating second pass field
+        WebElement secondPass = driver.findElement(By.cssSelector("input[formcontrolname='confirmPassword']"));
+        clickElement(secondPass);
+        //Adding incorrect pass
+        secondPass.sendKeys("passw0r");
+
+        //Finding the error message
+        WebElement errorMsg = driver.findElement(By.xpath("//span[contains(text(), 'Passwords do not match!')]"));
+        wait.until(ExpectedConditions.visibilityOf(errorMsg));
+        //Grabbing the text from the error message
+        String errMsg = errorMsg.getText();
+        Assert.assertEquals(errMsg, "Passwords do not match!");
+
+
+
+    }
+
     @AfterTest
     public void cleanUp(){
         driver.close();
