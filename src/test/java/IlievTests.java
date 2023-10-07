@@ -88,9 +88,6 @@ public class IlievTests {
         Assert.assertEquals(errMsg, "Passwords do not match!");
 
 
-
-    }
-
     @AfterTest
     public void cleanUp(){
         driver.close();
